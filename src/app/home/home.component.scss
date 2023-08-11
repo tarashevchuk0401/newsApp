@@ -1,0 +1,79 @@
+@import '/src/styles.scss';
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card {
+    width: 400px;
+    height: 530px;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 0;
+    margin-top: 45px;
+
+    .card_img {
+        width: 400px;
+        max-height: 217px;
+        object-fit: cover;
+    }
+
+    .card_arrow {
+        width: 12px;
+        height: 10px;
+    }
+
+    .card_calendar {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+    }
+
+    .card_text {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: space-between;
+
+        mat-card-header {
+            padding-top: 0;
+        }
+
+        mat-card-subtitle {
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 21px;
+            font-family: $font_montserrat;
+            display: flex;
+            align-items: center;
+          
+        }
+
+        mat-card-title {
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 29px;
+            font-family: $font_montserrat;
+            margin-top: 25px;
+        }
+
+        mat-card-content {
+            font-family: $font_montserrat;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            margin-top: 20px;
+        }
+    }
+}
+
+
+
+.button1 {
+    @include button;
+
+}

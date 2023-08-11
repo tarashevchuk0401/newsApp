@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap');
+
+$font_montserrat : 'Montserrat', sans-serif;
+$color_black : rgba(54, 54, 54, 1);
+
+@mixin button {
+    font-weight: 700;
+    font-style: 16px;
+    line-height: 24;
+    color: $color_black;
+}
+
+* {
+    font-family: $font_montserrat;
+}
+
+html, body{
+    margin: 0;
+    box-sizing: border-box;
+}
