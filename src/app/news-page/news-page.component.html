@@ -1,1 +1,24 @@
-<p>news-page works!</p>
+<div class="wrapper" *ngFor="let news of currentNews">
+    <img src={{news.image_url}} alt="image of article">
+    <div class="text">
+        <h2>{{news.title}}</h2>
+        <p>{{news.summary}}</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas autem veniam, facere quo, non fugit unde
+            consequuntur aspernatur itaque, consequatur quibusdam excepturi dicta maxime. Perferendis sint reiciendis id
+            eveniet veniam beatae consequuntur nemo hic, quisquam cumque et soluta ratione possimus, reprehenderit
+            pariatur autem officia alias aliquam fuga? Eligendi veritatis repellat nostrum impedit nesciunt dolorum
+            voluptates enim quis illum consectetur! Qui officia aspernatur iusto beatae temporibus consectetur et vel,
+            est impedit? Non aliquam ullam nobis et natus consequuntur dolores adipisci distinctio facilis repudiandae
+            perferendis dolorem suscipit earum odit, animi quas eos! Tenetur perspiciatis, iste quisquam, dicta illum
+            repudiandae asperiores voluptas et voluptatum quia ducimus, repellat nisi commodi ipsam magni porro
+            veritatis nulla reiciendis pariatur assumenda autem delectus. Nemo nulla, dolorem quis quaerat reprehenderit
+            nam consequatur deserunt saepe facere, necessitatibus nobis hic ducimus deleniti optio doloribus vero
+            tempora veritatis, est pariatur magnam ipsa assumenda! Neque facere, modi veniam consectetur tenetur saepe
+            ex reiciendis praesentium sit fugit deserunt doloremque eius nihil consequatur repellat vero quae totam
+            cumque, alias cupiditate id nulla excepturi facilis minima! Quia, accusantium. Inventore rem dolore corrupti
+            ea voluptate excepturi repudiandae facilis magni consequuntur. Sint tenetur corporis modi dolore nihil,
+            praesentium voluptatem cumque pariatur nisi rerum accusantium repudiandae non perferendis!</p>
+        <p>{{news.summary}}</p>
+
+    </div>
+</div>

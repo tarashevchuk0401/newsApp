@@ -1,0 +1,37 @@
+@import '/src/styles.scss';
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+img{
+    height: 245px;
+    width: 100vw;
+    object-fit: cover;
+    position: relative;
+}
+
+.text{
+    position: absolute;
+    top: 150px;
+    width: 1290px;
+    background-color: white;
+
+    h2{
+        margin-top: 45px;
+        text-align: center;
+        font-family: $font_montserrat;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+    }
+
+    p{
+        margin: 50px 75px;
+        font-family: $font_montserrat;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 27px;
+    }
+}

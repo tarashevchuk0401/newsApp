@@ -17,7 +17,7 @@
                 {{ news.summary | slice:0:100 }}{{ news.summary .length > 100 ? '...' : '' }}
             </mat-card-content>
             <mat-card-actions>
-                <button mat-button class="button1">
+                <button routerLink="/news-page/{{news.id}}" mat-button class="button1">
                     Read more
                     <img class="card_arrow" src="assets/Arrow - Right.svg" alt="">
                 </button>

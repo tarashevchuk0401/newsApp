@@ -10,4 +10,6 @@ export class ServerService {
   getNews(){
     return  this.http.get('https://api.spaceflightnewsapi.net/v4/articles/?limit=50&offset=1.json')
   }
+
+
 }
