@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   // Getting data from API and put in allNews array.
   getAllNews() {
     this.serverService.getNews().subscribe((data: any) => {
-      this.allNews = data.results;
+      this.allNews = data;
       console.log(this.allNews)
     })
   }

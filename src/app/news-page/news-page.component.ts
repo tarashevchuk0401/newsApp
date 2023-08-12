@@ -21,9 +21,7 @@ export class NewsPageComponent implements OnInit {
   }
 
   getNewsById() {
-    this.serverService.getNews().pipe(
-      map((item: any) => item.results),
-    ).subscribe((d: any) => {
+    this.serverService.getNews().subscribe((d: any) => {
       this.currentNews.push(d.find((item: any) => item.id == this.currentId));
     })
   }
