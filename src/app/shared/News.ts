@@ -5,7 +5,7 @@ export interface NewsArticle {
     image_url: string;
     launches: any[];
     news_site: string;
-    published_at: Date;
+    published_at?: Date;
     summary: string;
     title: string;
     updated_at: string;

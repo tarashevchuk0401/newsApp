@@ -1,13 +1,20 @@
-<p>home works!!</p>
-
 <div class="wrapper">
+    <div class="container">
+        <p>Filter by keywords</p>
+        <div class="input-with-icon">
+            <i class="icon material-icons material_icon">search</i>
+            <input id="myInput" type="text" #input >
+        </div>
+        <p>Results: {{renderedNews.length}}</p>
+        <mat-divider></mat-divider>
+    </div>
     <main>
-        <mat-card class="card" *ngFor="let news of allNews">
+        <mat-card class="card" *ngFor="let news of renderedNews">
             <img mat-card-image class="card_img" src={{news.image_url}} alt="Photo of a Shiba Inu">
             <div class="card_text">
                 <mat-card-header>
                     <mat-card-subtitle>
-                        <img class="card_calendar" src="assets/calendar.svg" alt=""> 
+                        <img class="card_calendar" src="assets/calendar.svg" alt="">
                         {{news.published_at | date }}
                     </mat-card-subtitle>
                     <mat-card-title>

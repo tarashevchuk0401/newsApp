@@ -1,8 +1,65 @@
 @import '/src/styles.scss';
 
-.wrapper{
+.wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 1290px;
+}
+
+.material_icon {
+    font-family: 'Material Icons' !important;
+}
+
+input {
+    display: flex;
+    margin-top: 10px;
+    width: 600px;
+    height: 50px;
+    padding-top: auto;
+    padding-left: 60px;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #EAEAEA;
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.05);
+    color: #575757;
+    font-family: $font_montserrat;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+input:focus {
+    outline-width: 0;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: #575757;
+}
+
+p {
+    color: $color_black;
+    font-family: $font_montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 50px;
 }
 
 main {
@@ -21,6 +78,10 @@ main {
     justify-content: space-between;
     flex-grow: 0;
     margin-top: 45px;
+    border-radius: 5px;
+    border: 1px solid #EAEAEA;
+    background: #FFF;
+    box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.05);
 
     .card_img {
         width: 400px;
@@ -56,7 +117,7 @@ main {
             font-family: $font_montserrat;
             display: flex;
             align-items: center;
-          
+
         }
 
         mat-card-title {
@@ -76,8 +137,6 @@ main {
         }
     }
 }
-
-
 
 .button1 {
     @include button;
