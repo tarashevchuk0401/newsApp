@@ -3,31 +3,28 @@
         <p>Filter by keywords</p>
         <div class="input-with-icon">
             <i class="icon material-icons material_icon">search</i>
-            <input id="myInput" type="text" #input >
+            <input id="myInput" type="text" #inputElement>
         </div>
         <p>Results: {{renderedNews.length}}</p>
         <mat-divider></mat-divider>
     </div>
     <main>
         <mat-card class="card" *ngFor="let news of renderedNews">
-            <img mat-card-image class="card_img" src={{news.image_url}} alt="Photo of a Shiba Inu">
+            <img mat-card-image class="card_img" src={{news.image_url}} alt="Photo of article">
             <div class="card_text">
                 <mat-card-header>
                     <mat-card-subtitle>
-                        <img class="card_calendar" src="assets/calendar.svg" alt="">
+                        <img class="card_calendar" src="assets/calendar.svg" alt="arrow">
                         {{news.published_at | date }}
                     </mat-card-subtitle>
-                    <mat-card-title>
-                        {{ news.title | slice:0:50 }}{{ news.title .length > 50 ? '...' : '' }}
+                    <mat-card-title [innerHtml]="news.title | highlight: inputElement.value | slice:0:180">
                     </mat-card-title>
                 </mat-card-header>
-                <mat-card-content>
-                    {{ news.summary | slice:0:100 }}{{ news.summary .length > 100 ? '...' : '' }}
-                </mat-card-content>
+                <mat-card-content [innerHtml]="news.summary | highlight: inputElement.value | slice:0:200"></mat-card-content>
                 <mat-card-actions>
                     <button routerLink="/news-page/{{news.id}}" mat-button class="button1">
                         Read more
-                        <img class="card_arrow" src="assets/Arrow - Right.svg" alt="">
+                        <img class="card_arrow" src="assets/Arrow - Right.svg" alt="arrow">
                     </button>
                 </mat-card-actions>
             </div>

@@ -10,6 +10,7 @@ import { NewsPageComponent } from './news-page/news-page.component';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { HighlightPipe } from './pipes/highlight.pipe';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponent,
     NewsPageComponent,
+    HighlightPipe,
   ],
   imports: [
     BrowserModule,
