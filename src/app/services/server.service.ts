@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
+import { NewsArticle } from '../shared/News';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ServerService  {
 
   // Geting article from API and use only results from whole object 
   getNews(): Observable<unknown> {
-    return this.http.get('https://api.spaceflightnewsapi.net/v4/articles/?limit=50&offset=1.json')
+    return this.http.get<NewsArticle>('https://api.spaceflightnewsapi.net/v4/articles/?limit=50&offset=1.json')
       .pipe(map((item: any) => item.results));
   }
 

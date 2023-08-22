@@ -28,7 +28,7 @@ export class NewsPageComponent extends UnsubscribingService implements OnInit {
     this.serverService.getNews().pipe(
       takeUntil(this.unsubscribe$)
     ).subscribe((data: any) => {
-      this.currentNews.push(data.find((item: any) => item.id == this.currentId));
+      this.currentNews.push(data.find((item: NewsArticle) => item.id === Number(this.currentId)));
     })
   }
 

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../services/server.service';
 import { NewsArticle } from '../shared/News';
-import { debounceTime, distinctUntilChanged, fromEvent, takeUntil } from 'rxjs';
+import { debounceTime, distinctUntilChanged, fromEvent, takeUntil, tap } from 'rxjs';
 import { UnsubscribingService } from '../services/unsubscribing.service';
-import { splitNsName } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -40,26 +39,43 @@ export class HomeComponent extends UnsubscribingService implements OnInit {
     let input$ = fromEvent(myInputElement, 'input');
     let searchTerm: any[] = [];
 
+    //  if (myInputElement.value = ' '  ) {
+    //   return
+    //   }
 
     input$.pipe(
       takeUntil(this.unsubscribe$),
+      tap(d => console.log(d)),
       debounceTime(1000),
-      distinctUntilChanged()
-    ).subscribe(() => {
+      distinctUntilChanged(),
+    ).subscribe((d) => {
       let matchedNews: NewsArticle[] = [];
-      searchTerm.push(myInputElement.value.trim().toLowerCase().split(' '));
-      let keyWord = searchTerm[searchTerm.length - 1];
 
-      //Firstly filtering by title 
+
+
+      console.log()
+
+      if (myInputElement.value.trim() !== '') {
+        console.log(myInputElement.value)
+        searchTerm.push(myInputElement.value.trim().toLowerCase().split(' '));
+      }
+
+      let keyWord = searchTerm[searchTerm.length - 1].filter((item: string) => item !== '');
+
+      // Firstly filtering by title 
       keyWord.forEach((item: string) => {
-        for (let i = 0; i < this.allNews.length; i++) {
-          if (this.allNews[i].title.toLowerCase().includes(item)) {
-            matchedNews.push(this.allNews[i])
+
+        if (myInputElement.value.trim() !== '') {
+          for (let i = 0; i < this.allNews.length; i++) {
+            if (this.allNews[i].title.toLowerCase().includes(item)) {
+              matchedNews.push(this.allNews[i])
+            }
           }
         }
+
       })
 
-      //Pushing to the end of array articles which contains search keyword in description (summary)
+      // Pushing to the end of array articles which contains search keyword in description (summary)
       keyWord.forEach((item: string) => {
         for (let i = 0; i < this.allNews.length; i++) {
           if (this.allNews[i].summary.toLowerCase().includes(item)) {
@@ -77,9 +93,11 @@ export class HomeComponent extends UnsubscribingService implements OnInit {
         }
         return false;
       });
-
-
     })
+    if(myInputElement.value.trim() == ''){
+      this.renderedNews = this.allNews
+     }
+
   }
 
 }

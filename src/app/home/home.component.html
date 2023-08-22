@@ -17,10 +17,11 @@
                         <img class="card_calendar" src="assets/calendar.svg" alt="arrow">
                         {{news.published_at | date }}
                     </mat-card-subtitle>
-                    <mat-card-title [innerHtml]="news.title | highlight: inputElement.value | slice:0:180">
+                    <mat-card-title [innerHtml]="news.title | highlight: inputElement.value ">
                     </mat-card-title>
                 </mat-card-header>
-                <mat-card-content [innerHtml]="news.summary | highlight: inputElement.value | slice:0:200"></mat-card-content>
+                <mat-card-content
+                    [innerHtml]="news.summary | highlight: inputElement.value"></mat-card-content>
                 <mat-card-actions>
                     <button routerLink="/news-page/{{news.id}}" mat-button class="button1">
                         Read more
